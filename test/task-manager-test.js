@@ -3,7 +3,7 @@ var TaskManager = require('../app/scripts/task-manager');
 
 describe('Task Manager', function(){
   var taskManager;
-  var testTask = { 1: 'This is a todo' };
+  var testTask = 'Painting my nails';
 
   beforeEach(function(){
     taskManager = new TaskManager();
@@ -22,6 +22,11 @@ describe('Task Manager', function(){
       taskManager.markAsComplete(testTask);
       expect(taskManager.pendingTasks).not.to.include(testTask);
       expect(taskManager.completedTasks).to.include(testTask);
+    });
+
+    it('throws an error when task doesn\'t exist', function(){
+      var fn = function(){ taskManager.markAsComplete(testTask) }
+      expect(fn).to.throw('Task doesn\'t exist');
     });
   });
 });

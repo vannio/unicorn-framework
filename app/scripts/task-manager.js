@@ -10,17 +10,15 @@ TaskManager.prototype = {
 
   markAsComplete: function(task){
     if (this.pendingTasks.includes(task)){
-      var index = this.pendingTasks.indexOf(task);
       this.completedTasks.push(task);
-      delete this.pendingTasks[index];
+      this.pendingTasks = this.pendingTasks.filter(isPendingTask);
 
-      this.pendingTasks = this.pendingTasks.filter(function(element){
-        return element !== undefined;
-      });
-
-      // this.pendingTasks = this.pendingTasks.filter(function(element){
-      //   return element !== task;
-      // });
+      function isPendingTask(element){
+        return element !== task;
+      };
+    }
+    else {
+      throw('Task doesn\'t exist');
     }
   }
 };

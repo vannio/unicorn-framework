@@ -17,6 +17,10 @@ TaskManager.prototype = {
       this.pendingTasks = this.pendingTasks.filter(function(element){
         return element !== undefined;
       });
+
+      // this.pendingTasks = this.pendingTasks.filter(function(element){
+      //   return element !== task;
+      // });
     }
   }
 };

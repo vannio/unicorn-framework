@@ -1,3 +1,4 @@
+var expect = require('chai').expect
 const Browser = require('zombie');
 const app = require('../../app/server');
 
@@ -17,7 +18,9 @@ describe('Display to do list', function() {
   });
 
   it('can display a task that has been added by a user', function(){
-    // browser.fill.in()
+    browser.fill('task', 'painting my nails')
+           .pressButton('Add Task');
+    expect(browser.text()).to.contain('painting my nails');
   });
 
 });

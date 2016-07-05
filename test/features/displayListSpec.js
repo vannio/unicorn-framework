@@ -1,12 +1,9 @@
 const Browser = require('zombie');
 const app = require('../../app/server');
-const http = require('http');
-console.log("moustache");
 
 describe('Display to do list', function() {
 
   before(function() {
-    this.server = http.createServer(app).listen(3000);
     this.browser = new Browser({site: 'http://localhost:3000'});
   });
 

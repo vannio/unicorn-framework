@@ -8,6 +8,16 @@
 	</head>
 	<body>
 		<img src="images/cat-pingpong.jpg" alt="catswannahavefun" />
-		HEYA!
+		<ul>
+			{% loop taskManager.pending %}
+				<li id="{{ index }}"><input type="checkbox">{{ item }}</li>
+			{% endloop %}
+
+			any shit
+
+			{% loop taskManager.pending %}
+				<li id="{{ index }}"><input type="checkbox">{{ item }}</li>
+			{% endloop %}
+		</ul>
 	</body>
 </html>

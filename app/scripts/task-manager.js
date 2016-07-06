@@ -1,26 +1,31 @@
-function TaskManager(){
-  this.pendingTasks = [];
-  this.completedTasks = [];
-};
+'use strict';
 
-TaskManager.prototype = {
-  addTask: function(task){
-    this.pendingTasks.push(task);
-  },
+(function(exports) {
+  function TaskManager(){
+    this.pendingTasks = [];
+    this.completedTasks = [];
+  };
 
-  markAsComplete: function(task){
-    if (this.pendingTasks.includes(task)){
-      this.completedTasks.push(task);
-      this.pendingTasks = this.pendingTasks.filter(isPendingTask);
+  TaskManager.prototype = {
+    addTask: function(task){
+      this.pendingTasks.push(task);
+    },
 
-      function isPendingTask(element){
-        return element !== task;
-      };
+    markAsComplete: function(task){
+      if (this.pendingTasks.includes(task)){
+        this.completedTasks.push(task);
+        this.pendingTasks = this.pendingTasks.filter(isPendingTask);
+
+        function isPendingTask(element){
+          return element !== task;
+        };
+      }
+      else {
+        throw('Task doesn\'t exist');
+      }
     }
-    else {
-      throw('Task doesn\'t exist');
-    }
-  }
-};
+  };
 
-module.exports = TaskManager;
+  exports.TaskManager = TaskManager;
+
+})(this);

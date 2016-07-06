@@ -2,7 +2,13 @@ var http = require('http');
 var fs = require('fs');
 var server = http.createServer();
 var serverPort = 3000;
-var TaskManager = require('./app/scripts/task-manager').;
+
+var TaskManager = require('./scripts/task-manager.js').TaskManager;
+var taskManager = new TaskManager();
+
+taskManager.addTask('Task 1');
+taskManager.addTask('Task 2');
+taskManager.addTask('Task 3');
 
 server.on('request', simpleResponse);
 
@@ -21,12 +27,12 @@ function simpleResponse(request, response) {
 
 		function renderTemplate(error, fileContent){
 			var stringContent = fileContent.toString('utf-8');
-			var match = stringContent.match(/\{%\sloop(.|\n)+?endloop\s%\}/)[0];
-			var arrayName = match.match(/\{%\sloop\s[\w.]+(?=\s%\})/)[0].replace('{% loop ', '');
+			var matchedBlock = stringContent.match(/\{%\sloop(.|\n)+?endloop\s%\}/)[0];
+			var arrayName = matchedBlock.match(/\{%\sloop\s[\w.]+(?=\s%\})/)[0].replace('{% loop ', '');
 
-			eval(arrayName)
+			console.log(eval(arrayName));
 
-			responseContent = '<body>This is a renderView response</body>';
+			responseContent = stringContent.replace(matchedBlock, eval(arrayName));
 			callback(error, responseContent);
 		}
 	}

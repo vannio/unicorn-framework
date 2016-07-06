@@ -2,22 +2,30 @@ var http = require('http');
 var fs = require('fs');
 var server = http.createServer();
 var serverPort = 3000;
+var renderView = require('./helpers');
+var TaskManager = require('./scripts/task-manager.js').TaskManager;
+var taskManager = new TaskManager();
+
+taskManager.addTask('Task 1');
+taskManager.addTask('Task 2');
+taskManager.addTask('Task 3');
+
+taskManager.markAsComplete('Task 2');
 
 server.on('request', simpleResponse);
 
 function simpleResponse(request, response) {
-	var url;
+	var responseContent;
 
 	if(request.url === '/') {
-		url = './app/index.html'
+		renderView(taskManager, endResponse);
 	} else {
-		url = './app/' + request.url;
+		var url = './app/' + request.url;
+		responseContent = fs.readFile(url, endResponse);
 	};
 
-	var responseContent = fs.readFile(url, endResponse);
-
-	function endResponse(err, responseContent) {
-		if(err) console.error('There is an error', err)
+	function endResponse(error, responseContent) {
+		if(error) console.error('There is an error', error);
 		response.end(responseContent, 'utf-8');
 	};
 };

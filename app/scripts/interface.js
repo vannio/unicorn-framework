@@ -7,11 +7,19 @@ $(document).ready(function() {
     var text = $('#task-content').val();
     taskManager.addTask(text);
 
-    $('#task-items').empty();
+    $('#pending-task-items').empty();
     for(var i = 0; i < taskManager.pendingTasks.length; i++) {
-      $('#task-items').append('<li>' + taskManager.pendingTasks[i] + '</li>')
-
+      $('#pending-task-items').append('<li>' + '<input type=\'checkbox\'' + ' ' + 'name=' + i + ' ' + 'id=' + i +'>' + taskManager.pendingTasks[i] + '</li>');
     }
+
+      $(':checkbox').change(function() {
+        for(var i = 0; i < taskManager.pendingTasks.length; i++) {
+          if ($('#' + i).is(":checked")) {
+          taskManager.markAsComplete(taskManager.pendingTasks[i]);
+          $('#completed-task-items').append('<li>' + taskManager.completedTasks[i] + '</li>');
+        }
+      }
+    });
   });
 
 });

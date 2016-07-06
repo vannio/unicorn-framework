@@ -25,6 +25,7 @@
   "homepage": "https://github.com/Jojograndjojo/To-do-List#readme",
   "dependencies": {
     "chai": "^3.5.0",
+    "chai-jquery": "^2.0.0",
     "mocha": "^2.5.3",
     "zombie": "^4.2.1"
   }

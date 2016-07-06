@@ -14,7 +14,7 @@ function simpleResponse(request, response) {
 		url = './app/' + request.url;
 	};
 
-	var responseContent = fs.readFile(url, endResponse);
+	fs.readFile(url, endResponse);
 
 	function endResponse(err, responseContent) {
 		if(err) console.error('There is an error', err)

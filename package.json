@@ -23,7 +23,9 @@
     "url": "https://github.com/Jojograndjojo/To-do-List/issues"
   },
   "homepage": "https://github.com/Jojograndjojo/To-do-List#readme",
-  "devDependencies": {
-    "chai": "^3.5.0"
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "zombie": "^4.2.1"
   }
 }

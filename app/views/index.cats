@@ -19,7 +19,7 @@
         <input id='add-task' type='submit' value='Add Task'>
     </form>
     <ul id='task-items'>
-				{% loop taskManager.pendingTasks %}
+				{% loop pendingTasks %}
 					<li id="{{ index }}" class="pending">
 						<input type="checkbox" name="{{ index }}">{{ item }}
 					</li>
@@ -29,7 +29,7 @@
     </ul>
 
 		<ul>
-			{% loop taskManager.completedTasks %}
+			{% loop completedTasks %}
 				<li id="{{ index }}" class="complete">
 					<input type="checkbox" name="{{ index }}">{{ item }}
 				</li>

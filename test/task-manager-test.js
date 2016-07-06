@@ -1,6 +1,5 @@
 var expect = require('chai').expect;
 var TaskManager = require('../app/scripts/task-manager').TaskManager;
-console.log(TaskManager);
 
 describe('Task Manager', function(){
   var taskManager;

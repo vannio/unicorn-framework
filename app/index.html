@@ -1,25 +1,24 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 	<head>
     <script type="text/javascript" src='scripts/task-manager.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 		<script type="text/javascript" src='scripts/interface.js'></script>
-		<link rel="stylesheet" href="stylesheets/stylesheet.css" />
+		<link type="text/css" rel="stylesheet" href="stylesheets/stylesheet.css" />
 		<meta charset="utf-8">
 		<title></title>
 	</head>
 	<body>
-		<img src="images/cat-pingpong.jpg" alt="catswannahavefun" />
 		HEYA!
     <form id='task-form' >
       <label>
         Task
        <input id='task-content' name='task' type='text'>
      </label>
-       <input type='submit' value='Add Task'>
+       <input id='add-task' type='submit' value='Add Task'>
     </form>
-    <ul>
-      <li>painting my nails
+    <ul id='task-items'>
+      <li> You have no tasks to complete </li>
     </ul>
 	</body>
 </html>

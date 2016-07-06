@@ -30,7 +30,9 @@ expect = chai.expect;
       browser.fill('task', 'painting my nails')
       .pressButton('Add Task');
       browser.check('0');
-      // browser.assert.element('ul[class=completed]', '');
+      browser.fill('task', 'new task')
+      .pressButton('Add Task');
+      expect(browser.html("ul[class='completed']")).to.contain('painting my nails');
     });
 
   });

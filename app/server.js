@@ -10,6 +10,8 @@ taskManager.addTask('Task 1');
 taskManager.addTask('Task 2');
 taskManager.addTask('Task 3');
 
+taskManager.markAsComplete('Task 2');
+
 server.on('request', simpleResponse);
 
 function simpleResponse(request, response) {
@@ -27,13 +29,24 @@ function simpleResponse(request, response) {
 
 		function renderTemplate(error, fileContent){
 			var stringContent = fileContent.toString('utf-8');
-			var matchedBlock = stringContent.match(/\{%\sloop(.|\n)+?endloop\s%\}/)[0];
-			var arrayName = matchedBlock.match(/\{%\sloop\s[\w.]+(?=\s%\})/)[0].replace('{% loop ', '');
+			var matchedBlock = stringContent.match(/\{%\sloop(.|\n)+?endloop\s%\}/);
 
-			console.log(eval(arrayName));
+			while (matchedBlock) {
+				var arrayName = matchedBlock[0].match(/\{%\sloop\s[\w.]+(?=\s%\})/)[0].replace('{% loop ', '');
+				var array = eval(arrayName);
+				var partial = '';
 
-			responseContent = stringContent.replace(matchedBlock, eval(arrayName));
-			callback(error, responseContent);
+				for (var i = 0; i < array.length; i++) {
+					var raw = matchedBlock[0].match(/%}(.|\n)+(?={%)/)[0].replace('%}', '');
+
+					partial += raw.split('{{ index }}').join(i).split('{{ item }}').join(array[i]);
+				}
+
+				stringContent = stringContent.replace(matchedBlock[0], partial);
+				matchedBlock = stringContent.match(/\{%\sloop(.|\n)+?endloop\s%\}/);
+			}
+
+			callback(error, stringContent);
 		}
 	}
 

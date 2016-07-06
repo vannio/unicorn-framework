@@ -20,15 +20,19 @@
     </form>
     <ul id='task-items'>
 				{% loop taskManager.pendingTasks %}
-					<li id="{{ index }}" class="pending"><input type="checkbox">{{ item }}</li>
+					<li id="{{ index }}" class="pending">
+						<input type="checkbox" name="{{ index }}">{{ item }}
+					</li>
 				{% endloop %}
 
 				<!-- <li> You have no tasks to complete </li> -->
     </ul>
 
 		<ul>
-			{% loop taskManager.complete %}
-				<li id="{{ index }}" class="complete"><input type="checkbox">{{ item }}</li>
+			{% loop taskManager.completedTasks %}
+				<li id="{{ index }}" class="complete">
+					<input type="checkbox" name="{{ index }}">{{ item }}
+				</li>
 			{% endloop %}
 		</ul>
 </body>

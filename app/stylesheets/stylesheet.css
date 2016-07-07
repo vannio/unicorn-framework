@@ -9,37 +9,3 @@
 h1.title {
 	text-transform: capitalize;
 }
-
-ul.pending,
-ul.completed {
-	list-style-type: none;
-	padding-left: 0;
-}
-
-ul.completed {
-	text-decoration: line-through;
-}
-
-li {
-	margin-bottom: 5px;
-	word-wrap: break-word;
-}
-
-input.task-input {
-	border: solid 2px black;
-  width: 100%;
-  padding: 10px;
-	box-shadow: 2px 2px 2px 0px blue;
-	transition: box-shadow 0.5s ease;
-	font-size: large;
-	box-sizing: border-box;
-}
-
-input.task-input:focus {
-	outline: none;
-	box-shadow: 2px 2px 2px 0px pink;
-}
-
-input.button {
-	display: none;
-}

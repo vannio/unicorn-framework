@@ -2,8 +2,6 @@ var http = require('http');
 var fs = require('fs');
 var server = http.createServer();
 var serverPort = 3000;
-var TaskManager = require('./scripts/task-manager.js').TaskManager;
-var taskManager = new TaskManager();
 
 server.on('request', simpleResponse);
 

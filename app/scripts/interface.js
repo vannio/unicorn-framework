@@ -4,7 +4,6 @@ $(document).ready(function() {
   var template = $('#task-items-container').html();
   var taskManager = new TaskManager();
 
-
   runRenderView();
 
   $('body').on('submit', '#task-form', function(event) {
@@ -14,6 +13,7 @@ $(document).ready(function() {
     taskManager.addTask(text);
     runRenderView();
   })
+
 
   $('body').on('change', ':checkbox', function(event) {
     var eventID = event.currentTarget.name;

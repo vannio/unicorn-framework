@@ -11,9 +11,9 @@ function simpleResponse(request, response) {
 	var responseContent;
 
 	if(request.url === '/') {
-		// renderView(taskManager, endResponse);
     responseContent = fs.readFile('./app/views/index.cats', endResponse);
-	} else {
+	}
+  else {
 		var url = './app/' + request.url;
 		responseContent = fs.readFile(url, endResponse);
 	};

@@ -2,7 +2,6 @@ var http = require('http');
 var fs = require('fs');
 var server = http.createServer();
 var serverPort = 3000;
-var renderView = require('./helpers');
 var TaskManager = require('./scripts/task-manager.js').TaskManager;
 var taskManager = new TaskManager();
 
@@ -12,8 +11,9 @@ function simpleResponse(request, response) {
 	var responseContent;
 
 	if(request.url === '/') {
-		renderView(taskManager, endResponse);
-	} else {
+    responseContent = fs.readFile('./app/views/index.cats', endResponse);
+	}
+  else {
 		var url = './app/' + request.url;
 		responseContent = fs.readFile(url, endResponse);
 	};

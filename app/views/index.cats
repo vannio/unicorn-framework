@@ -20,24 +20,21 @@
     </form>
     <ul class='pending' id='pending-task-items'>
         <li> You have no tasks to complete </li>
+
+        {% loop pendingTasks %}
+          <li id="{{ index }}" class="pending">
+            <input type="checkbox" name="{{ index }}">{{ item }}
+          </li>
+        {% endloop %}
     </ul>
     <ul class='completed' id='completed-task-items'>
         <li> You have no completed tasks </li>
+
+        {% loop completedTasks %}
+          <li id="{{ index }}" class="completed">
+            {{ item }}
+          </li>
+        {% endloop %}
     </ul>
-</body>
-    <!-- <ul id='task-items'>
-				{% loop pendingTasks %}
-					<li id="{{ index }}" class="pending">
-						<input type="checkbox" name="{{ index }}">{{ item }}
-					</li>
-				{% endloop %} -->
-    <!-- </ul> -->
-		<!-- <ul>
-			{% loop completedTasks %}
-				<li id="{{ index }}" class="complete">
-					<input type="checkbox" name="{{ index }}">{{ item }}
-				</li>
-			{% endloop %}
-		</ul> -->
 </body>
 </html>

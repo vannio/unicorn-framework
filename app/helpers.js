@@ -22,7 +22,7 @@ function renderLoopBlocks(stringContent, object) {
 
   while (matchedLoopBlock) {
     var propertyName = cleanPropertyName(matchedLoopBlock[0]);
-    var list = eval(object[propertyName]);
+    var list = object[propertyName];
     var partial = '';
 
     for (var i = 0; i < list.length; i++) {

@@ -11,18 +11,18 @@
 </head>
 
 <body>
+  <div class='container'>
+    <h1 class='title'>Unicorn Tasks</h1>
     <form id='task-form'>
-        <label>
-            Task
-            <input  id='task-content' name='task' type='text' required='true' autofocus>
-        </label>
-        <input id='add-task' type='submit' value='Add Task'>
+      <input class='task-input' id='task-content' name='task' type='text' required='true' placeholder='Look pretty and polish my horn' autocomplete='off' autofocus>
+      <input class='button' id='add-task' type='submit' value='Add Task'>
     </form>
     <div id='task-items-container'>
       <ul class='pending' id='pending-task-items'>
           {% loop pendingTasks %}
             <li id="{{ index }}" class="pending">
-              <input type="checkbox" name="{{ index }}">{{ item }}
+              <input type="checkbox" name="{{ index }}" id="item-{{ index }}">
+              <label for="item-{{ index }}">{{ item }}</label>
             </li>
           {% endloop %}
       </ul>
@@ -34,5 +34,6 @@
           {% endloop %}
       </ul>
     </div>
+  </div>
 </body>
 </html>

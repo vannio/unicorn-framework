@@ -4,8 +4,6 @@
     <script type="text/javascript" src='scripts/task-manager.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script type="text/javascript" src='scripts/interface.js'></script>
-
-    </script>
     <link type="text/css" rel="stylesheet" href="stylesheets/stylesheet.css" />
     <meta charset="utf-8">
     <title></title>

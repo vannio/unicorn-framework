@@ -18,22 +18,26 @@
         </label>
         <input id='add-task' type='submit' value='Add Task'>
     </form>
-    <ul id='task-items'>
+    <ul class='pending' id='pending-task-items'>
+        <li> You have no tasks to complete </li>
+    </ul>
+    <ul class='completed' id='completed-task-items'>
+        <li> You have no completed tasks </li>
+    </ul>
+</body>
+    <!-- <ul id='task-items'>
 				{% loop pendingTasks %}
 					<li id="{{ index }}" class="pending">
 						<input type="checkbox" name="{{ index }}">{{ item }}
 					</li>
-				{% endloop %}
-
-				<!-- <li> You have no tasks to complete </li> -->
-    </ul>
-
-		<ul>
+				{% endloop %} -->
+    <!-- </ul> -->
+		<!-- <ul>
 			{% loop completedTasks %}
 				<li id="{{ index }}" class="complete">
 					<input type="checkbox" name="{{ index }}">{{ item }}
 				</li>
 			{% endloop %}
-		</ul>
+		</ul> -->
 </body>
 </html>

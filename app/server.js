@@ -11,9 +11,22 @@ server.on('request', simpleResponse);
 function simpleResponse(request, response) {
 	var responseContent;
 
-	if(request.url === '/') {
+	if(request.url === '/' && request.method === 'GET') {
 		renderView(taskManager, endResponse);
-	} else {
+	}
+	else if(request.url === '/' && request.method === 'POST') {
+		var string = '';
+
+		request
+			.on('data', function(chunk){
+				string += chunk.toString('utf-8');
+			})
+			.on('end', function(){
+				taskManager.addTask(string);
+				renderView(taskManager, endResponse);
+			});
+	}
+	else {
 		var url = './app/' + request.url;
 		responseContent = fs.readFile(url, endResponse);
 	};

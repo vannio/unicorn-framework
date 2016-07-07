@@ -11,7 +11,7 @@
 
 <body>
     HEYA!
-    <form id='task-form'>
+    <form id='task-form' method='post' action='/'>
         <label>
             Task
             <input id='task-content' name='task' type='text'>

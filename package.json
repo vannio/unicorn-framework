@@ -1,10 +1,14 @@
 {
   "name": "unicorn-list",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple web framework",
   "main": "app/server.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
-    "start": "node app/server.js"
+    "start": "node app/server.js",
+    "postinstall": "bash makefile.sh"
   },
   "repository": {
     "type": "git",

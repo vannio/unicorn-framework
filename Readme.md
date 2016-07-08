@@ -11,16 +11,7 @@ The Unicorn framework generates a scaffold for a simple node server with a loopy
 1. Go to http://localhost:3000 to see the magic happen!
 
 ## Usage
-The `index.cats` file is a template for the main page, in which regular html syntax can be used.
-
-You can use custom template tags to loop through an array and display the contents. Below is an example of how to implement the loop block. In our example, `names` is a property on an object that stores an array.
-
-```html
-{% loop names %}
-  The index of this loop is {{ index }}.
-  The contents of this loop are {{ item }}.
-{% endloop %}
-```
+The `index.cats` file is a template for the main page, in which regular html syntax can be used along with custom template tags.
 
 The `template-renderer.js` needs to be loaded before the `interface.js` in the template file.
 ```html
@@ -36,4 +27,24 @@ var exampleObject = {
 }
 
 runRenderView(exampleObject);
+```
+
+
+#### Loops
+You can use `{% loop array %}` template tags to loop through an array and display the contents. In our example, `object.names` is an array.
+
+```html
+{% loop object.names %}
+  <p>The index of this loop is {{ index }}.</p>
+  <p>The contents of this loop are {{ item }}.</p>
+{% endloop %}
+```
+
+#### Conditionals
+You can use `{% if expression %}` template tags to render content, based on an expression that returns a boolean. In our example, the expression `object.names.length > 1` returns `true`, therefore the HTML gets rendered.
+
+```html
+{% if object.names.length > 1 %}
+  <li>Hello, this is true</li>
+{% endif %}
 ```

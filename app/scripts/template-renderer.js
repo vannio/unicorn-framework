@@ -4,11 +4,12 @@
     loopArrayName: /\{%\sloop\s[\w.]+(?=\s%\})/,
     rawHTML: /%}(.|\n)+(?={%)/,
     ifBlock: /\{%\sif(.|\n)+?endif\s%\}/,
-    ifExpression: /\{%\sif\s\(.+?(?=\))/
+    ifExpression: /\{%\sif\s.+?(?=\s%\})/
   }
 
   function renderView(object, content, callback) {
     var stringContent = content;
+
     stringContent = renderLoopBlocks(stringContent, object);
     stringContent = renderIfBlocks(stringContent, object);
     callback(stringContent);
@@ -19,7 +20,7 @@
 
     while (matchedLoopBlock) {
       var propertyName = cleanExpression(matchedLoopBlock[0], 'loopArrayName', '{% loop ');
-      var list = object[propertyName];
+      var list = eval(propertyName);
       var partial = '';
 
       for (var i = 0; i < list.length; i++) {
@@ -34,9 +35,8 @@
   }
 
   function cleanExpression(string, pattern, trimString) {
-    return string.match(regexPatterns[pattern])[0].replace(trimString, '');
+    return string.match(regexPatterns[pattern])[0].split('&gt;').join('>').replace(trimString, '');
   }
-
 
   function extractHTML(string) {
     return string.match(regexPatterns.rawHTML)[0].replace('%}', '');
@@ -46,9 +46,9 @@
     var matchedIfBlock = stringContent.match(regexPatterns.ifBlock);
 
     while(matchedIfBlock) {
-      var expression = cleanExpression(matchedIfBlock[0], 'ifExpression', '{% if (');
+      var expression = cleanExpression(matchedIfBlock[0], 'ifExpression', '{% if ');
 
-      if(eval(expression) === true) {
+      if(eval(expression)) {
         stringContent = stringContent.replace(matchedIfBlock[0], extractHTML(matchedIfBlock[0]));
       }
       else {

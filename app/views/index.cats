@@ -13,17 +13,17 @@
       <div id='template-container' style='display:none'>
         This framework was created by:
         <ul class='name-list'>
-          {% loop names %}
+          {% loop object.names %}
             <li id='{{ index }}'>
              <a href='http://github.com/{{ item }}' target='_blank'>@{{ item }}</a>
             </li>
           {% endloop %}
 
-          {% if (2 + 2 === 4) %}
+          {% if object.names.length > 1 %}
             <li>Hello, this is true</li>
           {% endif %}
 
-          {% if (2 + 2 === 5) %}
+          {% if (0) %}
             <li>Hello, this is false</li>
           {% endif %}
         </ul>

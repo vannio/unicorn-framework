@@ -40,5 +40,5 @@ server.listen(serverPort, function() {
 	console.log("    !||   :|| ");
 	console.log("    '''   ''' ");
 	console.log('');
-	console.log('Unicorns are running...');
+	console.log('Unicorns are running on http://localhost:' + serverPort);
 });

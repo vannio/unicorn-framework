@@ -3,15 +3,14 @@ var exampleObject = {
   names: ['andreamazza89','mtaner','Jojograndjojo','vannio']
 }
 
-$(document).ready(function() {
-  var template = $('#template-container').html();
+var templateContainer = document.getElementById('template-container');
+var template = templateContainer.innerHTML;
 
-  runRenderView(exampleObject);
-  $('#template-container').css('display', 'block');
+runRenderView(exampleObject);
+templateContainer.style.display = 'block';
 
-  function runRenderView(object) {
-    renderView(object, template, function(renderedContent) {
-      $('#template-container').html(renderedContent);
-    });
-  };
-});
+function runRenderView(object) {
+  renderView(object, template, function(renderedContent) {
+    templateContainer.innerHTML = renderedContent;
+  });
+};

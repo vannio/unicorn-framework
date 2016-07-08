@@ -1,6 +1,6 @@
 # Unicorn web framework
 
-The Unicorn framework generates a scaffold for a simple node server with a loopy template, to populate a webpage dynamically.
+The Unicorn framework generates a scaffold for a simple node server. It uses the well known `.cats` engine to populate pages dynamically.
 
 ## Installation
 1. Install [Node](https://nodejs.org/en/)

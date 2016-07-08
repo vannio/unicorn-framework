@@ -6,7 +6,7 @@ The Unicorn framework generates a scaffold for a simple node server with a loopy
 1. Install [Node](https://nodejs.org/en/)
 1. Create a new directory using `mkdir <directory name>`
 1. `cd <directory name>` to change into the directory
-1. Generate a Unicorn scaffold with `npm install ../unicorn-lists`
+1. Generate a Unicorn scaffold with `npm install unicorn-list`
 1. Start the server by running `npm start`
 1. Go to [http://localhost:3000](http://localhost:3000) to see the magic happen!
 

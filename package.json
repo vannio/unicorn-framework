@@ -1,5 +1,5 @@
 {
-  "name": "unicorn",
+  "name": "unicorn-list",
   "version": "1.0.1",
   "description": "simple to-do list app",
   "main": "./app/server.js",

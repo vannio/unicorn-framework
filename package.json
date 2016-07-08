@@ -1,23 +1,27 @@
 {
   "name": "unicorn",
-  "version": "1.0.0",
-  "description": "PENDING DESCRIPTION",
-  "main": "server.js",
+  "version": "1.0.1",
+  "description": "simple to-do list app",
+  "main": "./app/server.js",
   "directories": {
     "doc": "docs"
   },
+
   "scripts": {
     "start": "node app/server.js",
     "postinstall": "bash makefile.sh"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vannio/unicorn-framework.git"
   },
   "keywords": [
-    "awesome"
+    "node",
+    "http",
+    "template"
   ],
-  "author": "team awesome",
+  "author": "Team Unicorn",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vannio/unicorn-framework/issues"

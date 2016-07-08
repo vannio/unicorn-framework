@@ -1,7 +1,7 @@
 {
-  "name": "to-do-list",
+  "name": "unicorn-list",
   "version": "1.0.0",
-  "description": "simple to-do list app",
+  "description": "Simple web framework",
   "main": "app/server.js",
   "scripts": {
     "start": "node app/server.js"

@@ -1,14 +1,16 @@
 'use strict';
+var exampleObject = {
+  names: ['andreamazza89','mtaner','Jojograndjojo','vannio']
+}
 
 $(document).ready(function() {
   var template = $('#template-container').html();
-  var exampleModel = new ExampleModel();
 
-  runRenderView();
+  runRenderView(exampleObject);
   $('#template-container').css('display', 'block');
 
-  function runRenderView() {
-    renderView(exampleModel, template, function(renderedContent) {
+  function runRenderView(object) {
+    renderView(object, template, function(renderedContent) {
       $('#template-container').html(renderedContent);
     });
   };

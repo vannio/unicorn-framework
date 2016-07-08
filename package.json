@@ -1,13 +1,9 @@
 {
   "name": "to-do-list",
   "version": "1.0.0",
-  "description": "simple to-do list app ",
-  "main": "server.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "description": "simple to-do list app",
+  "main": "app/server.js",
   "scripts": {
-    "test": "mocha && mocha test/features",
     "start": "node app/server.js"
   },
   "repository": {
@@ -15,18 +11,14 @@
     "url": "git+https://github.com/Jojograndjojo/To-do-List.git"
   },
   "keywords": [
-    "awesome"
+    "node",
+    "http",
+    "template"
   ],
-  "author": "team awesome",
+  "author": "Team Unicorn",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jojograndjojo/To-do-List/issues"
   },
-  "homepage": "https://github.com/Jojograndjojo/To-do-List#readme",
-  "dependencies": {
-    "chai": "^3.5.0",
-    "chai-jquery": "^2.0.0",
-    "mocha": "^2.5.3",
-    "zombie": "^4.2.1"
-  }
+  "homepage": "https://github.com/Jojograndjojo/To-do-List#readme"
 }

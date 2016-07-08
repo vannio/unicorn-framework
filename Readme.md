@@ -27,6 +27,7 @@ The `template-renderer.js` needs to be loaded before the `interface.js` in the t
 <script type="text/javascript" src='scripts/template-renderer.js'></script>
 <script type="text/javascript" src='scripts/interface.js'></script>
 ```
+
 In `interface.js`, you need to pass the object holding the array into `runRenderView` as an argument.
 
 ```javascript

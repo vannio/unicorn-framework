@@ -18,6 +18,14 @@
              <a href='http://github.com/{{ item }}' target='_blank'>@{{ item }}</a>
             </li>
           {% endloop %}
+
+          {% if (2 + 2 === 4) %}
+            <li>Hello, this is true</li>
+          {% endif %}
+
+          {% if (2 + 2 === 5) %}
+            <li>Hello, this is false</li>
+          {% endif %}
         </ul>
       </div>
     </div>

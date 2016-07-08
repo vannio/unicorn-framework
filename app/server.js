@@ -23,5 +23,5 @@ function simpleResponse(request, response) {
 };
 
 server.listen(serverPort, function() {
-	console.log('IT MIGHT BE WORKING?');
+	console.log('Unicorns are running');
 });

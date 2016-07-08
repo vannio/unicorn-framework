@@ -9,3 +9,8 @@
 h1.title {
 	text-transform: capitalize;
 }
+
+ul.name-list {
+  list-style: none;
+  padding-left: 0;
+}

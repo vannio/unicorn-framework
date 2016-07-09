@@ -1,13 +1,13 @@
 .container {
-	margin: auto;
-	width: 90%;
-	max-width: 800px;
-	font-size: x-large;
-	font-family: sans-serif;
+  margin: auto;
+  width: 90%;
+  max-width: 800px;
+  font-size: x-large;
+  font-family: sans-serif;
 }
 
 h1.title {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 ul.name-list {

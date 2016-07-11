@@ -6,7 +6,6 @@ var serverPort = 3000;
 server.on('request', simpleResponse);
 
 function simpleResponse(request, response) {
-  var route = '';
   var responseContent;
 
   if (request.url === '/') {

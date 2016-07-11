@@ -7,12 +7,13 @@
     ifExpression: /\{%\sif\s.+?(?=\s%\})/
   }
 
-  function renderView(object, content, callback) {
-    var stringContent = content;
+  function renderView(object, container) {
+    var stringContent = container.innerHTML;
 
     stringContent = renderLoopBlocks(stringContent, object);
     stringContent = renderIfBlocks(stringContent, object);
-    callback(stringContent);
+    container.innerHTML = stringContent;
+    container.style.display = 'block';
   }
 
   function renderLoopBlocks(stringContent, object) {

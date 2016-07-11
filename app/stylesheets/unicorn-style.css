@@ -1,3 +1,7 @@
+.unicorn-container {
+  display: none;
+}
+
 .container {
   margin: auto;
   width: 90%;
@@ -6,11 +10,11 @@
   font-family: sans-serif;
 }
 
-h1.title {
+.title {
   text-transform: capitalize;
 }
 
-ul.name-list {
+.name-list {
   list-style: none;
   padding-left: 0;
 }

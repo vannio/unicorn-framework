@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link type='text/css' rel='stylesheet' href='stylesheets/stylesheet.css' />
+    <link type='text/css' rel='stylesheet' href='stylesheets/unicorn-style.css'>
     <meta charset='utf-8'>
     <title>Unicorn Framework</title>
   </head>
@@ -10,7 +10,7 @@
 
     <div class='container'>
       <h1 class='title'>Unicorn Framework</h1>
-      <div id='template-container' style='display:none'>
+      <div id='template-container' class="unicorn-container">
         This framework was created by:
         <ul class='name-list'>
           {% loop object.names %}
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <script type='text/javascript' src='scripts/template-renderer.js'></script>
+    <script type='text/javascript' src='scripts/unicorn-renderer.js'></script>
     <script type='text/javascript' src='scripts/interface.js'></script>
 
   </body>

@@ -26,21 +26,15 @@
 
       for (var i = 0; i < list.length; i++) {
         var rawHTML = extractHTML(matchedLoopBlock[0]);
-        partial += rawHTML.split('{{ index }}').join(i).split('{{ item }}').join(list[i]);
+        partial += rawHTML
+          .split('{{ index }}').join(i)
+          .split('{{ item }}').join(list[i]);
       }
 
       stringContent = stringContent.replace(matchedLoopBlock[0], partial);
       matchedLoopBlock = stringContent.match(regexPatterns.loopBlock);
     }
     return stringContent;
-  }
-
-  function cleanExpression(string, pattern, trimString) {
-    return string.match(regexPatterns[pattern])[0].split('&gt;').join('>').replace(trimString, '');
-  }
-
-  function extractHTML(string) {
-    return string.match(regexPatterns.rawHTML)[0].replace('%}', '');
   }
 
   function renderIfBlocks(stringContent, object) {
@@ -50,16 +44,31 @@
       var expression = cleanExpression(matchedIfBlock[0], 'ifExpression', '{% if ');
 
       if(eval(expression)) {
-        stringContent = stringContent.replace(matchedIfBlock[0], extractHTML(matchedIfBlock[0]));
+        stringContent = stringContent
+          .replace(matchedIfBlock[0], extractHTML(matchedIfBlock[0]));
       }
       else {
-        stringContent = stringContent.replace(matchedIfBlock[0], '');
+        stringContent = stringContent
+          .replace(matchedIfBlock[0], '');
       }
 
-      matchedIfBlock = stringContent.match(regexPatterns.ifBlock);
+      matchedIfBlock = stringContent
+        .match(regexPatterns.ifBlock);
     }
 
     return stringContent;
+  }
+
+  function cleanExpression(string, pattern, trimString) {
+    return string
+      .match(regexPatterns[pattern])[0]
+      .split('&gt;').join('>').replace(trimString, '');
+  }
+
+  function extractHTML(string) {
+    return string
+      .match(regexPatterns.rawHTML)[0]
+      .replace('%}', '');
   }
 
   exports.renderView = renderView;

@@ -1,6 +1,6 @@
 {
   "name": "unicorn-list",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple web framework",
   "main": "app/server.js",
   "directories": {

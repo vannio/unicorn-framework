@@ -8,6 +8,7 @@ server.on('request', simpleResponse);
 function simpleResponse(request, response) {
   var responseContent;
 
+  request.url = request.url.replace(/(\.\.\/?)/g, '');
   if (request.url === '/') {
     responseContent = fs.readFile('./app/views/index.cats', endResponse);
   }
